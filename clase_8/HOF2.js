@@ -51,6 +51,8 @@ let nuevo = frutas.map((fruta) => {
   console.log(fruta);
 });
 
+// Prueba commit
+
 const productos = [
   { id: 1, nombre: "Producto A", precio: 1000, cat: "A" },
   { id: 2, nombre: "Producto B", precio: 1500, cat: "A" },
