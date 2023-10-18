@@ -51,7 +51,7 @@ ul li a {
 
 /* Estilos del área principal */
 .hero {
-  background: url("hero-image.jpg") center/cover;
+  background: url("#") center/cover;
   text-align: center;
   color: #fff;
   padding: 100px 0;
