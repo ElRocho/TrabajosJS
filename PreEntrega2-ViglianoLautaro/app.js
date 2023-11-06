@@ -42,6 +42,9 @@ document.addEventListener("DOMContentLoaded", function () {
               peliculasRecomendadas.push(pelicula);
             }
           });
+          peliculasRecomendadas.forEach((pelicula) => {
+            displayMovie(pelicula);
+          });
           console.log("Películas recomendadas:");
           console.log(peliculasRecomendadas);
         }
@@ -52,3 +55,10 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
+
+function displayMovie(movie) {
+  const contenedor = document.getElementById("Peliculas");
+  const pelicula = document.createElement("li");
+  pelicula.innerHTML = movie.nombre;
+  contenedor.append(pelicula);
+}
