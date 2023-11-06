@@ -1,48 +1,54 @@
-const peliculas = [
-  { nombre: "Rapido y Furioso", genero: "Acción", clasificacion: 14 },
-  { nombre: "El Conjuro", genero: "Terror", clasificacion: 18 },
-  { nombre: "Nemo", genero: "Animada", clasificacion: 6 },
-  { nombre: "El Padrino", genero: "Drama", clasificacion: 18 },
-  { nombre: "Titanic", genero: "Romance", clasificacion: 14 },
-];
+document.addEventListener("DOMContentLoaded", function () {
+  const usuario = {
+    name: "",
+    age: null,
+  };
 
-const usuario = {
-  name: "",
-  age: null,
-};
+  const nombreInput = document.getElementById("nombreInput");
+  const edadInput = document.getElementById("edadInput");
+  const submitBtn = document.getElementById("submitBtn");
 
-let nombre = prompt("Ingresa tu nombre");
-let edad = parseInt(prompt("Ingresa tu edad"));
-while (nombre === "" || isNaN(edad)) {
-  if (nombre === "") {
-    alert("No ingresaste tu nombre");
-    nombre = prompt("Ingresa tu nombre");
-  }
-  if (isNaN(edad)) {
-    alert("No ingresaste tu edad");
-    edad = parseInt(prompt("Ingresa tu edad"));
-  }
-}
+  submitBtn.addEventListener("click", function () {
+    const nombre = nombreInput.value;
+    const edad = parseInt(edadInput.value);
+    const output = document.getElementById("output");
 
-usuario.name = nombre;
-usuario.age = edad;
+    console.log(usuario);
 
-console.log(usuario);
-class MovieManager {
-  constructor(peliculas) {
-    this.peliculas = peliculas;
-  }
-  recomendar(peliculas, usuario) {
-    let peliculasRecomendadas = [];
-    peliculas.forEach((pelicula) => {
-      if (pelicula.clasificacion <= usuario.age) {
-        peliculasRecomendadas.push(pelicula);
+    if (nombre === "" || isNaN(edad)) {
+      alert("Por favor, completa todos los campos correctamente.");
+    } else {
+      usuario.name = nombre;
+      usuario.age = edad;
+      output.children = "Usuario: " + usuario.name;
+
+      const peliculas = [
+        { nombre: "Rapido y Furioso", genero: "Acción", clasificacion: 14 },
+        { nombre: "El Conjuro", genero: "Terror", clasificacion: 18 },
+        { nombre: "Nemo", genero: "Animada", clasificacion: 6 },
+        { nombre: "El Padrino", genero: "Drama", clasificacion: 18 },
+        { nombre: "Titanic", genero: "Romance", clasificacion: 14 },
+      ];
+
+      class MovieManager {
+        constructor(peliculas) {
+          this.peliculas = peliculas;
+        }
+
+        recomendar(usuario) {
+          let peliculasRecomendadas = [];
+          this.peliculas.forEach((pelicula) => {
+            if (pelicula.clasificacion <= usuario.age) {
+              peliculasRecomendadas.push(pelicula);
+            }
+          });
+          console.log("Películas recomendadas:");
+          console.log(peliculasRecomendadas);
+        }
       }
-    });
-    console.log(peliculasRecomendadas);
-  }
-}
 
-const movieManager = new MovieManager(peliculas);
-
-movieManager.recomendar(peliculas, usuario);
+      const movieManager = new MovieManager(peliculas);
+      movieManager.recomendar(usuario);
+    }
+  });
+});

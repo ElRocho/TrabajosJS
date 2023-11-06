@@ -86,7 +86,58 @@ footer {
   color: #fff;
   text-align: center;
   padding: 10px 0;
-  position: absolute;
   bottom: 0;
   width: 100%;
+  display: flex;
+  justify-content: center;
+  flex: 1;
+}
+
+/* Estilo para el contenedor del formulario */
+#inputForm {
+  width: 300px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  text-align: center;
+  color: #212021;
+}
+
+/* Estilo para las etiquetas del formulario */
+label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+/* Estilo para los campos de entrada del formulario */
+input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Estilo para el botón del formulario */
+#submitBtn {
+  background-color: #212121;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+/* Estilo para el botón al pasar el mouse sobre él */
+#submitBtn:hover {
+  background-color: #212121;
+}
+
+/* Estilo para el párrafo de salida */
+#output {
+  margin-top: 20px;
+  font-weight: bold;
 }
